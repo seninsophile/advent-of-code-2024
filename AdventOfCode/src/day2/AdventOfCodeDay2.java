@@ -1,3 +1,4 @@
+package day2;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ public class AdventOfCodeDay2 {
 
 	public static void main(String[] args) {
 
-		File file = new File("Adv2");
+		File file = new File("inputs/Adv2");
 		
 		try {
 			

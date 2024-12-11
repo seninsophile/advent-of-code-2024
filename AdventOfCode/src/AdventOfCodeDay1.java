@@ -16,7 +16,7 @@ public class AdventOfCodeDay1 {
 		 * Make sure distance is not negative
 		 */
 		
-		File file = new File("Adv1");
+		File file = new File("inputs/Adv1");
 		
 		try {
 			
