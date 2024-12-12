@@ -41,13 +41,13 @@ public class AdventOfCodeDay3 {
 
 	public static void main(String[] args) {
 
-		File file = new File("inputs/example3");
+		File file = new File("inputs/Adv3");
 		
 		try {
 			
 			Scanner scan = new Scanner(file);
 			int count = 0;
-			while(scan.hasNext()) {
+			while(scan.hasNextLine()) {
 				
 				String line = scan.next();
 				String regex = "mul\\((\\d+),(\\d+)\\)";
@@ -57,9 +57,16 @@ public class AdventOfCodeDay3 {
 				
 				List<String> validCalls = new ArrayList<>();
 				
-				while(matcher.find()) {
-					validCalls.add(matcher.group());
-				}
+				while (matcher.find()) {  // Find all matches in the line
+                    validCalls.add(matcher.group());  // Add the match to the list
+                    // Extract the two numbers from the match groups
+                    int num1 = Integer.parseInt(matcher.group(1));
+                    int num2 = Integer.parseInt(matcher.group(2));
+
+                    // Multiply the numbers and add to the total sum
+                    int multiplicationResult = num1 * num2;
+                    count += multiplicationResult;
+                }
 				
 				System.out.println("'mul(' calls:");
 				for(String call : validCalls) {
@@ -67,6 +74,8 @@ public class AdventOfCodeDay3 {
 				}
 				
 			}
+			
+			System.out.println("Total sum: " + count);
 			
 			scan.close();
 			
